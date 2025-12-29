@@ -1,0 +1,41 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: ecommerce-prod
+
+resources:
+  - ../../base
+
+namePrefix: prod-
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 3
+    target:
+      kind: Deployment
+      name: ecommerce-app
+  - patch: |-
+      - op: replace
+        path: /spec/minReplicas
+        value: 3
+      - op: replace
+        path: /spec/maxReplicas
+        value: 20
+    target:
+      kind: HorizontalPodAutoscaler
+      name: ecommerce-hpa
+  - patch: |-
+      - op: replace
+        path: /spec/resources/requests/storage
+        value: 50Gi
+    target:
+      kind: PersistentVolumeClaim
+      name: mysql-pvc
+
+configMapGenerator:
+  - name: ecommerce-config
+    behavior: merge
+    literals:
+      - SPRING_PROFILES_ACTIVE=prod
