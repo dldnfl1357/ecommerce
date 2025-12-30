@@ -13,7 +13,7 @@ spring:
 
   flyway:
     enabled: true
-    url: jdbc:mysql://localhost:3306/ecommerce?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/ecommerce?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     user: root
     password: password
     baseline-on-migrate: true
@@ -69,7 +69,7 @@ spring:
     password: ${SPRING_R2DBC_PASSWORD:password}
 
   flyway:
-    url: ${SPRING_FLYWAY_URL:jdbc:mysql://mysql:3306/ecommerce}
+    url: ${SPRING_FLYWAY_URL:jdbc:mysql://mysql:3306/ecommerce?useSSL=false&allowPublicKeyRetrieval=true}
     user: ${SPRING_FLYWAY_USER:root}
     password: ${SPRING_FLYWAY_PASSWORD:password}
 
