@@ -19,9 +19,15 @@ public class SecurityConfig {
                 .formLogin(ServerHttpSecurity.FormLoginSpec::disable)
                 .httpBasic(ServerHttpSecurity.HttpBasicSpec::disable)
                 .authorizeExchange(exchanges -> exchanges
+                        // Actuator 엔드포인트 허용
+                        .pathMatchers("/actuator/**").permitAll()
+                        // Swagger UI 허용
                         .pathMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**", "/webjars/**").permitAll()
-                        .pathMatchers("/api/v1/members/signup", "/api/v1/members/login").permitAll()
+                        // Auth API 허용
+                        .pathMatchers("/api/v1/auth/**").permitAll()
+                        // Public API 허용
                         .pathMatchers("/api/v1/products/**", "/api/v1/categories/**").permitAll()
+                        // 나머지는 인증 필요
                         .anyExchange().authenticated()
                 )
                 .build();
