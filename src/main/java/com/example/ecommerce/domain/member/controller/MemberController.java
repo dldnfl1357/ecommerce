@@ -66,7 +66,7 @@ public class MemberController {
      */
     @DeleteMapping("/me")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Mono<ApiResponse<Void>> withdraw(
+    public Mono<ApiResponse<String>> withdraw(
         @RequestAttribute("memberId") Long memberId
     ) {
         log.info("회원 탈퇴 요청: memberId={}", memberId);
@@ -202,7 +202,7 @@ public class MemberController {
      */
     @DeleteMapping("/me/addresses/{addressId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Mono<ApiResponse<Void>> deleteAddress(
+    public Mono<ApiResponse<String>> deleteAddress(
         @RequestAttribute("memberId") Long memberId,
         @PathVariable Long addressId
     ) {

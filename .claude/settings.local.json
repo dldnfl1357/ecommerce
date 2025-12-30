@@ -13,7 +13,8 @@
       "Bash(export PATH=\"$JAVA_HOME/bin:$PATH\")",
       "Bash(/mnt/c/gradle-8.3/bin/gradle test:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(./gradlew:*)"
     ],
     "deny": [],
     "ask": []

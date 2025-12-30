@@ -12,20 +12,25 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ApiResponse<T> {
 
-    private boolean success;
+    private boolean result;
+    private String message;
     private T data;
     private ErrorResponse error;
 
+    public static <T> ApiResponse<T> success(T data, String message) {
+        return new ApiResponse<>(true, message, data, null);
+    }
+
     public static <T> ApiResponse<T> success(T data) {
-        return new ApiResponse<>(true, data, null);
+        return new ApiResponse<>(true, null, data, null);
     }
 
     public static <T> ApiResponse<T> success() {
-        return new ApiResponse<>(true, null, null);
+        return new ApiResponse<>(true, null, null, null);
     }
 
     public static <T> ApiResponse<T> error(String code, String message) {
-        return new ApiResponse<>(false, null, new ErrorResponse(code, message));
+        return new ApiResponse<>(false, null, null, new ErrorResponse(code, message));
     }
 
     @Getter

@@ -80,7 +80,7 @@ public class AuthController {
      * POST /api/v1/auth/logout
      */
     @PostMapping("/logout")
-    public Mono<ApiResponse<Void>> logout(
+    public Mono<ApiResponse<String>> logout(
         @RequestAttribute("memberId") Long memberId
     ) {
         log.info("로그아웃 요청: memberId={}", memberId);
