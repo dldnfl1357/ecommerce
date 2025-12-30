@@ -20,8 +20,27 @@ public enum ErrorCode {
     // Member
     MEMBER_NOT_FOUND(HttpStatus.NOT_FOUND, "M001", "회원을 찾을 수 없습니다."),
     DUPLICATE_EMAIL(HttpStatus.CONFLICT, "M002", "이미 사용 중인 이메일입니다."),
-    INVALID_PASSWORD(HttpStatus.BAD_REQUEST, "M003", "비밀번호가 일치하지 않습니다."),
-    INSUFFICIENT_POINT(HttpStatus.BAD_REQUEST, "M004", "적립금이 부족합니다."),
+    DUPLICATE_PHONE(HttpStatus.CONFLICT, "M003", "이미 사용 중인 전화번호입니다."),
+    INVALID_PASSWORD(HttpStatus.BAD_REQUEST, "M004", "비밀번호가 일치하지 않습니다."),
+    INVALID_CREDENTIALS(HttpStatus.UNAUTHORIZED, "M005", "이메일 또는 비밀번호가 일치하지 않습니다."),
+    INSUFFICIENT_POINT(HttpStatus.BAD_REQUEST, "M006", "적립금이 부족합니다."),
+    INSUFFICIENT_POINT_MINIMUM(HttpStatus.BAD_REQUEST, "M007", "적립금은 최소 1,000원 이상 사용 가능합니다."),
+    DORMANT_MEMBER(HttpStatus.FORBIDDEN, "M008", "휴면 계정입니다. 고객센터에 문의해주세요."),
+    WITHDRAWN_MEMBER(HttpStatus.FORBIDDEN, "M009", "탈퇴한 회원입니다."),
+    SUSPENDED_MEMBER(HttpStatus.FORBIDDEN, "M010", "이용 정지된 계정입니다."),
+
+    // Auth
+    INVALID_TOKEN(HttpStatus.UNAUTHORIZED, "A001", "유효하지 않은 토큰입니다."),
+    EXPIRED_TOKEN(HttpStatus.UNAUTHORIZED, "A002", "만료된 토큰입니다."),
+    REFRESH_TOKEN_NOT_FOUND(HttpStatus.UNAUTHORIZED, "A003", "리프레시 토큰을 찾을 수 없습니다."),
+    AUTHENTICATION_FAILED(HttpStatus.UNAUTHORIZED, "A004", "인증에 실패했습니다."),
+
+    // Address
+    ADDRESS_NOT_FOUND(HttpStatus.NOT_FOUND, "AD001", "배송지를 찾을 수 없습니다."),
+    DEFAULT_ADDRESS_NOT_FOUND(HttpStatus.NOT_FOUND, "AD002", "기본 배송지가 없습니다."),
+    MAX_ADDRESS_COUNT_EXCEEDED(HttpStatus.BAD_REQUEST, "AD003", "배송지는 최대 10개까지 등록 가능합니다."),
+    CANNOT_DELETE_DEFAULT_ADDRESS(HttpStatus.BAD_REQUEST, "AD004", "다른 배송지를 기본으로 설정한 후 삭제해주세요."),
+    UNAUTHORIZED_ADDRESS_ACCESS(HttpStatus.FORBIDDEN, "AD005", "배송지에 접근 권한이 없습니다."),
 
     // Product
     PRODUCT_NOT_FOUND(HttpStatus.NOT_FOUND, "P001", "상품을 찾을 수 없습니다."),

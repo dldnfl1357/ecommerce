@@ -4,7 +4,16 @@
       "Bash(gradle wrapper:*)",
       "Bash(tree:*)",
       "Bash(xargs find:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(git -C /mnt/c/projects/ecommerce status --short)",
+      "Bash(./gradlew test:*)",
+      "Bash(gradle test:*)",
+      "Bash(export JAVA_HOME=\"/mnt/c/Program Files/Java/jdk-17\")",
+      "Bash(export PATH=\"$JAVA_HOME/bin:$PATH\")",
+      "Bash(/mnt/c/gradle-8.3/bin/gradle test:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
