@@ -14,7 +14,9 @@
       "Bash(/mnt/c/gradle-8.3/bin/gradle test:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(./gradlew:*)"
+      "Bash(./gradlew:*)",
+      "Bash(/mnt/c/gradle-8.3/bin/gradle compileJava:*)",
+      "Bash(git -C /mnt/c/projects/ecommerce log --oneline -10)"
     ],
     "deny": [],
     "ask": []

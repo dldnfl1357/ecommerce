@@ -42,10 +42,24 @@ public enum ErrorCode {
     CANNOT_DELETE_DEFAULT_ADDRESS(HttpStatus.BAD_REQUEST, "AD004", "다른 배송지를 기본으로 설정한 후 삭제해주세요."),
     UNAUTHORIZED_ADDRESS_ACCESS(HttpStatus.FORBIDDEN, "AD005", "배송지에 접근 권한이 없습니다."),
 
+    // Seller
+    SELLER_NOT_FOUND(HttpStatus.NOT_FOUND, "S001", "판매자를 찾을 수 없습니다."),
+    DUPLICATE_BUSINESS_NUMBER(HttpStatus.CONFLICT, "S002", "이미 등록된 사업자등록번호입니다."),
+    ALREADY_SELLER(HttpStatus.CONFLICT, "S003", "이미 판매자로 등록되어 있습니다."),
+    SELLER_NOT_ACTIVE(HttpStatus.FORBIDDEN, "S004", "활성화된 판매자가 아닙니다."),
+    SELLER_SUSPENDED(HttpStatus.FORBIDDEN, "S005", "정지된 판매자입니다."),
+
     // Product
     PRODUCT_NOT_FOUND(HttpStatus.NOT_FOUND, "P001", "상품을 찾을 수 없습니다."),
     PRODUCT_NOT_AVAILABLE(HttpStatus.BAD_REQUEST, "P002", "판매 중인 상품이 아닙니다."),
     OPTION_NOT_FOUND(HttpStatus.NOT_FOUND, "P003", "상품 옵션을 찾을 수 없습니다."),
+    CATEGORY_NOT_FOUND(HttpStatus.NOT_FOUND, "P004", "카테고리를 찾을 수 없습니다."),
+    INVALID_PRODUCT_PRICE(HttpStatus.BAD_REQUEST, "P005", "유효하지 않은 상품 가격입니다."),
+    INVALID_DISCOUNT_RATE(HttpStatus.BAD_REQUEST, "P006", "할인율은 0~100 사이여야 합니다."),
+    PRODUCT_IMAGE_REQUIRED(HttpStatus.BAD_REQUEST, "P007", "최소 1개의 상품 이미지가 필요합니다."),
+    PRODUCT_OPTION_REQUIRED(HttpStatus.BAD_REQUEST, "P008", "최소 1개의 상품 옵션이 필요합니다."),
+    PRODUCT_ALREADY_DELETED(HttpStatus.BAD_REQUEST, "P009", "이미 삭제된 상품입니다."),
+    CANNOT_DELETE_PRODUCT_WITH_ORDERS(HttpStatus.CONFLICT, "P010", "진행 중인 주문이 있어 삭제할 수 없습니다."),
 
     // Inventory
     INSUFFICIENT_STOCK(HttpStatus.BAD_REQUEST, "I001", "재고가 부족합니다."),
