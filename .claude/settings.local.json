@@ -16,7 +16,12 @@
       "Bash(git commit:*)",
       "Bash(./gradlew:*)",
       "Bash(/mnt/c/gradle-8.3/bin/gradle compileJava:*)",
-      "Bash(git -C /mnt/c/projects/ecommerce log --oneline -10)"
+      "Bash(git -C /mnt/c/projects/ecommerce log --oneline -10)",
+      "Bash(cmd.exe /c \"cd /d C:\\\\projects\\\\ecommerce && gradlew.bat build\")",
+      "Bash(cmd.exe /c \"cd /d C:\\\\projects\\\\ecommerce && gradle wrapper\")",
+      "Bash(cmd.exe /c \"cd /d C:\\\\projects\\\\ecommerce && gradlew.bat clean build\")",
+      "Bash(cmd.exe /c \"cd /d C:\\\\projects\\\\ecommerce && gradlew.bat test --tests \"\"*AddressServiceTest*\"\" -x compileTestJava\")",
+      "Bash(cmd.exe:*)"
     ],
     "deny": [],
     "ask": []
