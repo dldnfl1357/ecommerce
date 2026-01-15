@@ -64,6 +64,11 @@ public enum ErrorCode {
     // Inventory
     INSUFFICIENT_STOCK(HttpStatus.BAD_REQUEST, "I001", "재고가 부족합니다."),
     STOCK_RESERVATION_FAILED(HttpStatus.CONFLICT, "I002", "재고 예약에 실패했습니다."),
+    INVENTORY_NOT_FOUND(HttpStatus.NOT_FOUND, "I003", "재고 정보를 찾을 수 없습니다."),
+    DUPLICATE_INVENTORY(HttpStatus.CONFLICT, "I004", "이미 재고가 등록된 상품 옵션입니다."),
+    INVALID_INVENTORY_QUANTITY(HttpStatus.BAD_REQUEST, "I005", "유효하지 않은 재고 수량입니다."),
+    INVALID_INVENTORY_OPERATION(HttpStatus.BAD_REQUEST, "I006", "유효하지 않은 재고 작업입니다."),
+    INVENTORY_UPDATE_CONFLICT(HttpStatus.CONFLICT, "I007", "재고 업데이트 충돌이 발생했습니다. 다시 시도해주세요."),
 
     // Cart
     CART_ITEM_NOT_FOUND(HttpStatus.NOT_FOUND, "CT001", "장바구니 상품을 찾을 수 없습니다."),
