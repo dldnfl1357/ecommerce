@@ -1,0 +1,17 @@
+plugins {
+    id 'java-library'
+}
+
+description = 'Common Kafka Module - Kafka configurations and event publishing'
+
+dependencies {
+    // Common Core
+    api project(':common:common-core')
+
+    // Spring Kafka (Reactive)
+    api 'org.springframework.kafka:spring-kafka'
+    api 'io.projectreactor.kafka:reactor-kafka'
+
+    // Domain Events
+    api project(':domain-events')
+}

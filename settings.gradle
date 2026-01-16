@@ -1,1 +1,17 @@
-rootProject.name = 'ecommerce'
+rootProject.name = 'ecommerce-msa'
+
+// Common Modules
+include 'common:common-core'
+include 'common:common-webflux'
+include 'common:common-kafka'
+
+// Domain Events
+include 'domain-events'
+
+// Services
+include 'services:member-service'
+include 'services:product-service'
+include 'services:order-service'
+
+// Gateway
+include 'gateway'

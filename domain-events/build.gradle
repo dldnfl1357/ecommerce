@@ -1,0 +1,15 @@
+plugins {
+    id 'java-library'
+}
+
+description = 'Domain Events Module - Shared event classes for inter-service communication'
+
+dependencies {
+    // Lombok
+    api 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Jackson for JSON serialization
+    api 'com.fasterxml.jackson.core:jackson-databind'
+    api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+}

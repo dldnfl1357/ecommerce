@@ -1,0 +1,40 @@
+plugins {
+    id 'org.springframework.boot'
+}
+
+description = 'Product Service - Handles product, category, seller, and inventory'
+
+dependencies {
+    // Common modules
+    implementation project(':common:common-webflux')
+    implementation project(':common:common-kafka')
+
+    // R2DBC MySQL
+    implementation 'io.asyncer:r2dbc-mysql'
+
+    // Flyway (for DB migration)
+    implementation 'org.flywaydb:flyway-core'
+    implementation 'org.flywaydb:flyway-mysql'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+
+    // WebClient for service-to-service communication
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    // Swagger/OpenAPI
+    implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.3.0'
+
+    // Actuator
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    // Redis (for caching)
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
+
+    // Test
+    testImplementation 'io.projectreactor:reactor-test'
+    testRuntimeOnly 'io.r2dbc:r2dbc-h2'
+    testRuntimeOnly 'com.h2database:h2'
+}
+
+bootJar {
+    archiveFileName = 'product-service.jar'
+}

@@ -1,0 +1,24 @@
+plugins {
+    id 'java-library'
+}
+
+description = 'Common Core Module - Shared classes across all services'
+
+dependencies {
+    // Lombok
+    api 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Jackson for JSON
+    api 'com.fasterxml.jackson.core:jackson-databind'
+    api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+
+    // Spring Data for annotations (@CreatedDate, @LastModifiedDate)
+    api 'org.springframework.data:spring-data-commons'
+
+    // Spring Web for HttpStatus
+    api 'org.springframework:spring-web'
+
+    // Validation
+    api 'jakarta.validation:jakarta.validation-api'
+}
