@@ -1,0 +1,65 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: order-service
+
+  # R2DBC
+  r2dbc:
+    url: r2dbc:mysql://localhost:3308/order_db?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: password
+
+  # Flyway (JDBC for migration)
+  flyway:
+    enabled: true
+    url: jdbc:mysql://localhost:3308/order_db?allowPublicKeyRetrieval=true&useSSL=false
+    user: root
+    password: password
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+  # Redis
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  # Kafka
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: order-service-group
+      auto-offset-reset: earliest
+
+# Service URLs
+services:
+  member-service:
+    url: http://localhost:8081
+  product-service:
+    url: http://localhost:8082
+
+# Logging
+logging:
+  level:
+    root: INFO
+    com.example.ecommerce: DEBUG
+    org.springframework.r2dbc: DEBUG
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+# Springdoc
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html

@@ -72,17 +72,30 @@ public enum ErrorCode {
 
     // Cart
     CART_ITEM_NOT_FOUND(HttpStatus.NOT_FOUND, "CT001", "장바구니 상품을 찾을 수 없습니다."),
+    CART_ITEM_LIMIT_EXCEEDED(HttpStatus.BAD_REQUEST, "CT002", "장바구니에는 최대 100개까지 담을 수 있습니다."),
 
     // Order
     ORDER_NOT_FOUND(HttpStatus.NOT_FOUND, "O001", "주문을 찾을 수 없습니다."),
     INVALID_ORDER_STATUS(HttpStatus.BAD_REQUEST, "O002", "주문 상태가 올바르지 않습니다."),
-    ORDER_CANNOT_BE_CANCELLED(HttpStatus.BAD_REQUEST, "O003", "취소할 수 없는 주문입니다."),
+    ORDER_CANNOT_CANCEL(HttpStatus.BAD_REQUEST, "O003", "취소할 수 없는 주문입니다."),
     ORDER_ITEM_NOT_FOUND(HttpStatus.NOT_FOUND, "O004", "주문 상품을 찾을 수 없습니다."),
 
     // Payment
     PAYMENT_NOT_FOUND(HttpStatus.NOT_FOUND, "PM001", "결제 정보를 찾을 수 없습니다."),
     PAYMENT_FAILED(HttpStatus.BAD_REQUEST, "PM002", "결제에 실패했습니다."),
     REFUND_FAILED(HttpStatus.BAD_REQUEST, "PM003", "환불에 실패했습니다."),
+    PAYMENT_ALREADY_COMPLETED(HttpStatus.CONFLICT, "PM004", "이미 완료된 결제입니다."),
+    PAYMENT_AMOUNT_MISMATCH(HttpStatus.BAD_REQUEST, "PM005", "결제 금액이 일치하지 않습니다."),
+    PAYMENT_CANNOT_CANCEL(HttpStatus.BAD_REQUEST, "PM006", "취소할 수 없는 결제입니다."),
+    PAYMENT_CANNOT_REFUND(HttpStatus.BAD_REQUEST, "PM007", "환불할 수 없는 결제입니다."),
+    REFUND_AMOUNT_EXCEEDED(HttpStatus.BAD_REQUEST, "PM008", "환불 금액이 환불 가능 금액을 초과했습니다."),
+    INVALID_PAYMENT_STATUS(HttpStatus.BAD_REQUEST, "PM009", "결제 상태가 올바르지 않습니다."),
+
+    // Delivery
+    DELIVERY_NOT_FOUND(HttpStatus.NOT_FOUND, "D001", "배송 정보를 찾을 수 없습니다."),
+    DELIVERY_ALREADY_EXISTS(HttpStatus.CONFLICT, "D002", "이미 배송 정보가 존재합니다."),
+    INVALID_DELIVERY_STATUS(HttpStatus.BAD_REQUEST, "D003", "배송 상태가 올바르지 않습니다."),
+    RETURN_NOT_ALLOWED(HttpStatus.BAD_REQUEST, "D004", "반품이 불가능합니다."),
 
     // Coupon
     COUPON_NOT_FOUND(HttpStatus.NOT_FOUND, "CP001", "쿠폰을 찾을 수 없습니다."),
